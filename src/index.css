@@ -1,0 +1,80 @@
+/* src/index.css */
+@import "tailwindcss";
+
+/* Custom scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, #fbbf24, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body default styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-bullet {
+  width: 28px;
+  height: 4px;
+  border-radius: 20px;
+  background-color: #fff;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.custom-bullet-active {
+  background: #FFC700; 
+}
+
+.smooth-carousel {
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 0 0 0;
+}
+
+.smooth-carousel > * {
+  scroll-snap-align: center;
+}
