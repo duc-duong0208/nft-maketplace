@@ -1,6 +1,6 @@
 // src/components/layout/Header.tsx
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TextAlignStart, X  } from "lucide-react";
 import clsx from "clsx";
 import Button from "@/components/common/Button";
@@ -17,8 +17,21 @@ const navItems = [
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  // Ngăn scroll body khi menu mở
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [open]);
+
   return (
-    <header className="w-full bg-black text-white">
+    <header className="relative w-full bg-black text-white">
       <div className="flex items-center justify-between px-4 md:px-6 lg:px-8 py-4">
         <div className="flex">
           {/* Mobile Menu Toggle */}
@@ -27,7 +40,7 @@ export default function Header() {
             className="lg:hidden p-2 text-white"
             aria-label="Toggle menu"
           >
-            {open ? <X size={28} /> : <TextAlignStart size={28} />}
+            {open ? <X size={28} className="cursor-pointer" /> : <TextAlignStart size={28} className="cursor-pointer" />}
           </button>
           {/* Logo */}
           <a href="#" className="flex items-center min-w-[60px]">
@@ -69,10 +82,11 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Mobile Menu - Absolute Positioning */}
       {open && (
-        <div className="lg:hidden bg-[#1F2023] py-6 h-screen overflow-y-hidden">
-          <nav className="flex flex-col items-center gap-4">
-            <div className="flex flex-col w-full rounded-2xl px-6 gap-4">
+        <nav className="absolute top-full left-0 right-0 lg:hidden bg-[#1F2023] py-6 shadow-lg z-20 h-screen">
+          <div className="flex flex-col items-center gap-4 px-6">
+            <div className="flex flex-col w-full rounded-2xl gap-4">
               {navItems.map((item) => (
                 <a
                   key={item.label}
@@ -89,8 +103,8 @@ export default function Header() {
                 </a>
               ))}
             </div>
-          </nav>
-        </div>
+          </div>
+        </nav>
       )}
     </header>
   );
