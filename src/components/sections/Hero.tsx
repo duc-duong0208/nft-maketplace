@@ -1,5 +1,3 @@
-// src/components/sections/Hero.tsx
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import HeroBanner from "@/assets/hero-banner.png";

@@ -1,4 +1,3 @@
-// src/components/sections/FeaturedSections.tsx
 import { useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SectionTitle from "../common/SectionTitle";

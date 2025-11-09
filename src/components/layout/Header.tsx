@@ -1,5 +1,3 @@
-// src/components/layout/Header.tsx
-
 import { useState, useEffect } from "react";
 import { TextAlignStart, X  } from "lucide-react";
 import clsx from "clsx";

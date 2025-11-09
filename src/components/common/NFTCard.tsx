@@ -1,5 +1,3 @@
-// src/components/common/NFTCard.tsx
-
 import { NFT } from "@/types";
 
 interface NFTCardProps {
